@@ -2,12 +2,12 @@ const seedrandom = require('seedrandom');
 
 class Random {
     //Gets a random integer (without seed)
-    static randomIntNoSeed(min, max) {
+    static randomIntSeedless(min, max) {
         return Math.floor(Math.random() * (max - min) + min);
     }
 
     //Gets a random float number (without seed)
-    static randomFlNoSeed(min, max) {
+    static randomFlSeedless(min, max) {
         let randNo = Math.random() * (max - min) + min;
         return Math.floor(randNo * 100.00) / 100.00;
     }
