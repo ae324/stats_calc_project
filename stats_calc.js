@@ -6,11 +6,11 @@ class stats_calc {
     constructor() {
         this.result = null;
     }
-    randomIntNoSeed(min, max) {
-        this.result = Random.randomIntNoSeed(min, max);
+    randomIntSeedless(min, max) {
+        this.result = Random.randomIntSeedless(min, max);
     }
-    randomFlNoSeed(min, max) {
-        this.result = Random.randomFlNoSeed(min, max);
+    randomFlSeedless(min, max) {
+        this.result = Random.randomFlSeedless(min, max);
     }
     randomIntSeed(seed, min, max) {
         this.result = Random.randomIntSeed(seed, min, max);
