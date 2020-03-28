@@ -1,31 +1,31 @@
 const seedrandom = require('seedrandom');
 
 class Random {
-    //Gets a random integer (without seed)
-    static randomIntSeedless(min, max) {
+    //Gets a random integer (seedless)
+    static randomIntNoSeed(min, max) {
         return Math.floor(Math.random() * (max - min) + min);
     }
 
-    //Gets a random float number (without seed)
-    static randomFlSeedless(min, max) {
-        let randNo = Math.random() * (max - min) + min;
-        return Math.floor(randNo * 100.00) / 100.00;
+    //Gets a random float number (seedless)
+    static randomFlNoSeed(min, max) {
+        let x = Math.random() * (max - min) + min;
+        return Math.floor(x * 100.00) / 100.00;
     }
 
-    //Get a random integer using a seed
+    //Get a random integer (seed)
     static randomIntSeed(seed, min, max) {
         seedrandom(seed, {global: true});
         return Math.floor(Math.random() * (max - min) + min);
     }
 
-    //Generates a random seeded float number
+    //Generates a random float number (seed)
     static randomFlSeed(seed, min, max) {
         seedrandom(seed, {global: true});
-        let randomNo = Math.random() * (max - min) + min;
-        return Math.floor(randomNo * 100.00) / 100.00;
+        let x = Math.random() * (max - min) + min;
+        return Math.floor(x * 100.00) / 100.00;
     }
 
-    //Creates a seeded decimal list
+    //Creates a decimal list (seed)
     static randomFlListSeeded(seed, min, max, n) {
         let randArray = [];
         seedrandom(seed, {global: true});
@@ -37,7 +37,7 @@ class Random {
         return randArray;
     }
 
-    //Creates a int list of seeded items
+    //Creates a int list (seed)
     static randomIntListSeeded(seed, min, max, len) {
         let randArray = [];
         seedrandom(seed, {global: true});
@@ -54,7 +54,7 @@ class Random {
         return list[randItem];
     }
 
-    //Selects a random seeded item
+    //Selects a random item (seed)
     static selectRandomSeededItem(seed, list) {
         seedrandom(seed, {global: true});
         let randItem = Math.floor(Math.random() * list.length);
@@ -64,7 +64,7 @@ class Random {
     //Selects N amount of random items, with replacement
     static selectNItems(list, n) {
         let returnList = [];
-        while (returnList.length <= n) {
+        while (returnList.length < n) {
             let item = Math.floor(Math.random() * list.length) + 0;
             returnList.push(list[item]);
         }
@@ -76,7 +76,7 @@ class Random {
     static selectNItemsSeeded(seed, list, n) {
         seedrandom(seed, {global: true});
         let returnList = [];
-        while (returnList.length <= n) {
+        while (returnList.length < n) {
             let item = Math.floor(Math.random() * list.length) + 0;
             returnList.push(list[item]);
         }
